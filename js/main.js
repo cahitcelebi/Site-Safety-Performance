@@ -10,22 +10,33 @@ initialize();
 
 function initialize(){
 
+    messageControler();
+    nextPageController();
+
+}
+
+function messageControler(){
     $('input[type="checkbox"]').click(function(){
         if($(this).prop("checked") == true){
-            alert("true");
+            localStorage.setItem("ischecked",true);
         }
         else if($(this).prop("checked") == false){
-            alert("false");
+            localStorage.setItem("ischecked",false);
         }
     });
 
     $("#btnIntro").click(function(){
-
-
-
+        alert(localStorage.getItem("ischecked"));
     });
 
+}
 
+function nextPageController(){
 
+    if(localStorage.getItem("ischecked")=="true"){
+        $("#girisSayfasi").hide();
+    }else{
+        $("#girisSayfasi").show();
+    }
 }
 
