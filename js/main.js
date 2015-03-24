@@ -7,12 +7,9 @@ initialize();
 
 });
 
-
 function initialize(){
-
     messageControler();
     nextPageController();
-
 }
 
 function messageControler(){
@@ -25,18 +22,40 @@ function messageControler(){
         }
     });
 
-    $("#btnIntro").click(function(){
-        alert(localStorage.getItem("ischecked"));
-    });
-
 }
 
 function nextPageController(){
 
     if(localStorage.getItem("ischecked")=="true"){
         $("#girisSayfasi").hide();
+        $("#buttonArea").show();
+        $("#fullModelArea").hide();
+        $("#shortModelArea").hide();
     }else{
         $("#girisSayfasi").show();
+        $("#buttonArea").hide();
+        $("#fullModelArea").hide();
+        $("#shortModelArea").hide();
     }
+
+    $("#btnIntro").click(function(){
+        $("#girisSayfasi").hide();
+        $("#fullModelArea").hide();
+        $("#shortModelArea").hide();
+        $("#buttonArea").show();
+    });
+
+    $("#btnFullModel").click(function(){
+        $("#fullModelArea").show();
+        $("#shortModelArea").hide();
+        $("#buttonArea").hide();
+    });
+
+    $("#btnShortModel").click(function(){
+        $("#fullModelArea").hide();
+        $("#shortModelArea").show();
+        $("#buttonArea").hide();
+    });
+
 }
 

@@ -3,11 +3,16 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Site Safety Performance (SSP)</title>
-    <script src="js/jquery-1.11.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet"  type="text/css" href="css/style.css">
+
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
 </head>
 <body>
 <div id="container" class="container">
@@ -16,11 +21,130 @@
         <h1>Site Safety Performance (SSP)</h1>
         <p>This application is intended to measure the level of site safety performance.</p>
         <div id="chkbx" class="checkbox">
-            <label><input type="checkbox" value="">Do not show this message again.</label>
+            <label><input type="checkbox" name="checkbox-0 ">Do not show this message again.</label>
         </div>
         <div id="btnIntro">
             <button type="button" class="btn btn-primary">Next</button>
         </div>
+    </div>
+
+    <div id="buttonArea">
+        <div class="jumbotron">
+            <h1>Site Safety Performance (SSP)</h1>
+            <p>About full model and short model</p>
+            <p>Full model 16 groups 168 items and short model 16 groups and 48 items</p>
+            <div class="row">
+                <div id="btnFullModel" class="col-sm-4">
+                    <button type="button" class="btn btn-info btn-lg">Full Model</button>
+                </div>
+                <div id="btnShortModel" class="col-sm-4">
+                    <button type="button" class="btn btn-info btn-lg">Short Model</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fullModelArea">
+        <div data-role="page">
+            <div data-role="header">
+                <h1><b>Full Model Area</b></h1>
+                <p>VARIABLES AFFECTING SAFETY PERFORMANCE</p>
+            </div>
+
+            <div class="panel-group" id="accordion">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><b>1) SCAFFOLDINGS AND WORKING PLATFORMS </b></a>
+                        </h4>
+                    </div>
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div id="question101">
+                                1.1     Installation, operation and disassembly plan for the scaffolding are present.
+                                <input type="range" name="slider101" id="slider101" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                            <div id="question102">
+                                1.2     Defective and worn fasteners are not used in scaffolding system.
+                                <input type="range" name="slider102" id="slider102" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                            <div id="question103">
+                                1.3     Fastening and supporting against horizontal and vertical forces are performed properly.
+                                <input type="range" name="slider103" id="slider103" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                            <div id="question104">
+                                1.4     Rubbish and waste material on scaffoldings and platforms are cleared not to block people to pass.
+                                <input type="range" name="slider104" id="slider104" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                            <div id="question105">
+                                1.5     Guard rails, intermediate rails, toe boards, screens and plankings comply with the standards.
+                                <input type="range" name="slider105" id="slider105" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                            <div id="question106">
+                                1.6     Gateways with proper system are present at scaffoldings.
+                                <input type="range" name="slider106" id="slider106" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                            <div id="question107">
+                                1.7     Preventive measures (barrier/warning notices) are taken for incomplete/unsafe scaffolds.
+                                <input type="range" name="slider107" id="slider107" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                            <div id="question108">
+                                1.8     Scaffolding and working platforms are controlled/inspected before use.
+                                <input type="range" name="slider108" id="slider108" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                            <div id="question109">
+                                1.9     Sign boards are hung indicating the maximum load capacity that scaffoldings can bear at proper and visible places.
+                                <input type="range" name="slider109" id="slider109" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                            <div id="question110">
+                                1.10   Scaffoldings and working platforms are not overloaded.
+                                <input type="range" name="slider110" id="slider110" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                            <div id="question111">
+                                1.11  Assembly and disassembly operations are performed by experienced/trained people.
+                                <input type="range" name="slider111" id="slider111" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                            <div id="question112">
+                                1.12  Proper personal protective equipment (PPE) are used.
+                                <input type="range" name="slider112" id="slider112" value="50" min="0" max="100" data-highlight="true" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Collapsible Group 2</a>
+                        </h4>
+                    </div>
+                    <div id="collapse2" class="panel-collapse collapse">
+                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Collapsible Group 3</a>
+                        </h4>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="shortModelArea">
+        <h1>Short Model Area</h1>
     </div>
 
 </div>
