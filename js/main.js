@@ -4,58 +4,99 @@
 
 $(document).ready(function(){
 initialize();
-
 });
 
+var fnaName,fnaValue;
+
+
 function initialize(){
-    messageControler();
-    nextPageController();
+    objectController();
 }
 
-function messageControler(){
-    $('input[type="checkbox"]').click(function(){
+
+function objectController(){
+    //intro check controller
+    $('#introCheck').click(function(){
         if($(this).prop("checked") == true){
-            localStorage.setItem("ischecked",true);
+            localStorage.setItem("introChecked",true);
         }
         else if($(this).prop("checked") == false){
-            localStorage.setItem("ischecked",false);
+            localStorage.setItem("introChecked",false);
         }
     });
 
-}
-
-function nextPageController(){
-
-    if(localStorage.getItem("ischecked")=="true"){
-        $("#girisSayfasi").hide();
-        $("#buttonArea").show();
-        $("#fullModelArea").hide();
-        $("#shortModelArea").hide();
-    }else{
-        $("#girisSayfasi").show();
-        $("#buttonArea").hide();
-        $("#fullModelArea").hide();
-        $("#shortModelArea").hide();
+    if(localStorage.getItem("introChecked")=="true"){
+        window.location.assign("index.html#mainMenu");
     }
 
-    $("#btnIntro").click(function(){
-        $("#girisSayfasi").hide();
-        $("#fullModelArea").hide();
-        $("#shortModelArea").hide();
-        $("#buttonArea").show();
+    //full Model içerisindeki checkBox değerinin bulunduğu ve localStorage set edildiği satırlar
+    $('#fullModelPage input[type="checkbox"]').click(function(){
+        fnaName=$(this).attr("name");
+        fnaValue=fnaName.substr(3);
+        if($(this).prop("checked") == true){
+            localStorage.setItem("fna"+fnaValue,true);
+            $("#slider"+fnaValue).hide();
+            localStorage.setItem("f"+fnaValue,"na");
+        }
+        else if($(this).prop("checked") == false){
+            localStorage.setItem("fna"+fnaValue,false);
+            $("#slider"+fnaValue).show();
+            localStorage.setItem("f"+fnaValue,$("#fslider"+fnaValue).val());
+        }
     });
 
-    $("#btnFullModel").click(function(){
-        $("#fullModelArea").show();
-        $("#shortModelArea").hide();
-        $("#buttonArea").hide();
+    //fullModel Page event handlers
+    if(window.location.hash=="#fullModelPage"){
+        fullModelPageLoaded();
+    }
+    $("#fullBtnClicked").click(function(){
+        fullModelPageLoaded();
     });
+    $("#fullBtnClicked2").click(function(){
+        fullModelPageLoaded();
+    });
+}
 
-    $("#btnShortModel").click(function(){
-        $("#fullModelArea").hide();
-        $("#shortModelArea").show();
-        $("#buttonArea").hide();
+
+function fullModelPageLoaded(){
+
+   //na checkbox getItem controller
+    for(var i=101;i<=112;i++){
+        if(localStorage.getItem("fna"+i)=="true"){
+            $("#fna"+i).prop("checked",true);
+            $("#slider"+i).hide();
+        }
+
+        if(localStorage.getItem("f"+i)==""){
+            if(localStorage.getItem("f"+i)!="na"){
+                localStorage.setItem("f"+i,50);
+            }
+        }
+        else{
+           //slider position getItem
+        }
+    }
+
+
+    $("#frecordsBtn").click(function(){
+        setLocalStorageFullRecords();
     });
+}
+
+function setLocalStorageFullRecords(){
+   //fill the records tables
+    for(var i=101;i<=112;i++){
+        if(localStorage.getItem("f"+i)!="na"){
+            localStorage.setItem("f"+i,$("#fslider"+i).val());
+            $("#"+i).html("<i>Your answer:</i> "+"<b>"+localStorage.getItem("f"+i)+"</b>");
+        }else{
+            localStorage.setItem("f"+i,"na");
+            $("#"+i).html("<i>Your answer:</i> "+"<b>NA</b>");
+        }
+    }
+
 
 }
+
+
 
